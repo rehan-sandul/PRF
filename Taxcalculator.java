@@ -67,6 +67,7 @@ class Example {
 	}
 
 	public static void withholdingTaxMenu() {
+		clearConsole();
 		System.out.println("+-----------------------------------------------------------------+");
 		System.out.println("|\t\t\t WITHHOLDING TAX \t\t\t  |");
 		System.out.println("+-----------------------------------------------------------------+");
@@ -77,7 +78,7 @@ class Example {
 		System.out.println("\t [4] Exit \n");
 
 		L1: while (true) {
-			clearConsole();
+
 			System.out.print("Enter an option to continue -> ");
 			int option1 = input.nextInt();
 			switch (option1) {
@@ -245,6 +246,7 @@ class Example {
 	}
 
 	public static void LeasingPayment() {
+		clearConsole();
 		System.out.println("+-----------------------------------------------------------------+");
 		System.out.println("|\t\t\t LEASING PAYMENT \t\t\t  |");
 		System.out.println("+-----------------------------------------------------------------+");
