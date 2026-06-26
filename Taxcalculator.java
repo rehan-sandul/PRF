@@ -361,9 +361,51 @@ class Example {
 	}
 
 	public static void calculateMonthlyInstallment() {
-		System.out.println("+-----------------------------------------------------------------+");
-		System.out.println("|\t\t\t CALCULATE MONTHLY INSTALLMENT \t\t\t  |");
-		System.out.println("+-----------------------------------------------------------------+");
+		String again = "Y";
+
+		while (again.equals("Y")) {
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.println("|\t\t\t CALCULATE MONTHLY INSTALLMENT \t\t\t  |");
+			System.out.println("+-----------------------------------------------------------------+");
+
+			System.out.print("  Enter lease amount          : ");
+			double leaseAmount = input.nextDouble();
+
+			if (leaseAmount <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			System.out.print("  Enter annual interest rate  : ");
+			double annualRate = input.nextDouble();
+
+			if (annualRate <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			System.out.print("  Enter number of year        : ");
+			int years = input.nextInt();
+
+			if (years <= 0 || years > 5) {
+				System.out.println("  Invalid number of year... Enter the correct value again...");
+				System.out.print("  Enter number of year        : ");
+				years = input.nextInt();
+			}
+
+			double i = (annualRate / 100) / 12;
+			int n = years * 12;
+			double monthly = leaseAmount * i / (1 - Math.pow(1 + i, -n));
+
+			System.out.printf("  Your monthly instalment : %.2f%n", monthly);
+
+			System.out.print("Do you want to calculate another monthly instalment (Y/N): ");
+			again = input.next().toUpperCase();
+		}
 	}
 
 	public static void searchLeasingCategory() {
