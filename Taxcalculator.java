@@ -94,21 +94,143 @@ class Example {
 	}
 
 	public static void PayableTax() {
-		System.out.println("+-----------------------------------------------------------------+");
-		System.out.println("|\t\t\t PAYABLE TAX \t\t\t  |");
-		System.out.println("+-----------------------------------------------------------------+");
+		String again = "Y";
+
+		while (again.equals("Y")) {
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.println("|\t\t\t PAYABLE TAX \t\t\t  |");
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.print("  Enter your employee payment per month : ");
+			double salary = input.nextDouble();
+
+			if (salary <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			if (salary <= 100000) {
+				System.out.println("  You don't have to pay Payable Tax...");
+			} else {
+				double tax = 0;
+
+				if (salary > 100000) {
+					double amount = Math.min(salary, 141667) - 100000;
+					tax = tax + amount * 0.06;
+				}
+				if (salary > 141667) {
+					double amount = Math.min(salary, 183333) - 141667;
+					tax = tax + amount * 0.12;
+				}
+				if (salary > 183333) {
+					double amount = Math.min(salary, 225000) - 183333;
+					tax = tax + amount * 0.18;
+				}
+				if (salary > 225000) {
+					double amount = Math.min(salary, 266667) - 225000;
+					tax = tax + amount * 0.24;
+				}
+				if (salary > 266667) {
+					double amount = Math.min(salary, 308333) - 266667;
+					tax = tax + amount * 0.30;
+				}
+				if (salary > 308333) {
+					double amount = salary - 308333;
+					tax = tax + amount * 0.36;
+				}
+
+				System.out.printf("  You have to pay Payable Tax per month : %.2f%n", tax);
+			}
+
+			System.out.print("Do you want to calculate another Payable Tax (Y/N): ");
+			again = input.next().toUpperCase();
+		}
 	}
 
 	public static void IncomeTax() {
-		System.out.println("+-----------------------------------------------------------------+");
-		System.out.println("|\t\t\t INCOME TAX \t\t\t  |");
-		System.out.println("+-----------------------------------------------------------------+");
+		String again = "Y";
+
+		while (again.equals("Y")) {
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.println("|\t\t\t INCOME TAX \t\t\t  |");
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.print("  Enter your total income per year : ");
+			double income = input.nextDouble();
+
+			if (income <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			if (income <= 1200000) {
+				System.out.println("  You don't have to pay Income Tax...");
+			} else {
+				double tax = 0;
+
+				if (income > 1200000) {
+					double amount = Math.min(income, 1700000) - 1200000;
+					tax = tax + amount * 0.06;
+				}
+				if (income > 1700000) {
+					double amount = Math.min(income, 2200000) - 1700000;
+					tax = tax + amount * 0.12;
+				}
+				if (income > 2200000) {
+					double amount = Math.min(income, 2700000) - 2200000;
+					tax = tax + amount * 0.18;
+				}
+				if (income > 2700000) {
+					double amount = Math.min(income, 3200000) - 2700000;
+					tax = tax + amount * 0.24;
+				}
+				if (income > 3200000) {
+					double amount = Math.min(income, 3700000) - 3200000;
+					tax = tax + amount * 0.30;
+				}
+				if (income > 3700000) {
+					double amount = income - 3700000;
+					tax = tax + amount * 0.36;
+				}
+
+				System.out.printf("  You have to pay Income Tax per year : %.2f%n", tax);
+			}
+
+			System.out.print("Do you want to calculate another Income Tax (Y/N): ");
+			again = input.next().toUpperCase();
+		}
 	}
 
 	public static void SSCLTax() {
-		System.out.println("+-----------------------------------------------------------------+");
-		System.out.println("|\t\t\t SOCIAL SECURITY CONTRIBUTION LEVY (SSCL) TAX \t\t\t  |");
-		System.out.println("+-----------------------------------------------------------------+");
+
+		String again = "Y";
+
+		while (again.equals("Y")) {
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.println("|\t\t\t SOCIAL SECURITY CONTRIBUTION LEVY (SSCL) TAX \t\t\t  |");
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.print("  Enter value of Good or Service : ");
+			double value = input.nextDouble();
+
+			if (value <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			double saleTax = value * 0.025;
+			double afterSaleTax = value + saleTax;
+			double vat = afterSaleTax * 0.15;
+			double totalTax = saleTax + vat;
+
+			System.out.printf("  You have to pay SSCL Tax : %.2f%n", totalTax);
+
+			System.out.print("Do you want to calculate another SSCL Tax (Y/N): ");
+			again = input.next().toUpperCase();
+		}
 	}
 
 	public static void LeasingPayment() {
@@ -208,9 +330,34 @@ class Example {
 	}
 
 	public static void dividendTax() {
-		System.out.println("+-----------------------------------------------------------------+");
-		System.out.println("|\t\t\t DIVIDEND TAX \t\t\t  |");
-		System.out.println("+-----------------------------------------------------------------+");
+
+		String again = "Y";
+
+		while (again.equals("Y")) {
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.println("|\t\t\t DIVIDEND TAX \t\t\t  |");
+			System.out.println("+-----------------------------------------------------------------+");
+
+			System.out.print("  Enter your total dividend per year : ");
+			double dividend = input.nextDouble();
+
+			if (dividend <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			if (dividend <= 100000) {
+				System.out.println("  You dont have to pay Dividend Tax...");
+			} else {
+				double tax = (dividend - 100000) * 0.14;
+				System.out.printf("  You have to pay Dividend Tax per year : %.2f%n", tax);
+			}
+
+			System.out.print("Do you want to calculate another Dividend Tax (Y/N): ");
+			again = input.next().toUpperCase();
+		}
 	}
 
 	public static void calculateMonthlyInstallment() {
