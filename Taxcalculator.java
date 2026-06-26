@@ -4,38 +4,39 @@ class Example {
 	static Scanner input = new Scanner(System.in);
 
 	public static void main(String args[]) {
-
-		System.out.println("\t\t\t\t\t\t  __  _______  ________ ________   ");
-		System.out.println("\t\t\t\t\t\t |  \\/       \\|        |        \\   ");
-		System.out.println("\t\t\t\t\t\t  \\$|   $$$$$$| $$$$$$$$\\$$$$$$$$  ");
-		System.out.println("\t\t\t\t\t\t |  | $$    \\$| $$__      | $$");
-		System.out.println("\t\t\t\t\t\t | $| $$      | $$  \\     | $$");
-		System.out.println("\t\t\t\t\t\t | $| $$    __| $$$$$     | $$");
-		System.out.println("\t\t\t\t\t\t | $| $$___/  | $$_____   | $$");
-		System.out.println("\t\t\t\t\t\t | $$\\$$     $| $$     \\  | $$");
-		System.out.println("\t\t\t\t\t\t  \\$$ \\$$$$$$  \\$$$$$$$$   \\$$ \n\n");
-		System.out.println(
-				"   ________            __    __    _____              _         _____   _     _   _                  _______    ____    ______");
-		System.out.println(
-				"  |__   ___|    /\\     \\ \\  / /   / ____|     /\\     | |       / ____| | |   | | | |          /\\    |__   __|  / __ \\  |  __  \\");
-		System.out.println(
-				"     | |       /  \\     \\ \\/ /   | |         /  \\    | |      | |      | |   | | | |         /  \\      | |    | |  | | | |__) |");
-		System.out.println(
-				"     | |      / /\\ \\     >  <    | |        / /\\ \\   | |      | |      | |   | | | |        / /\\ \\     | |    | |  | | |  _  /");
-		System.out.println(
-				"     | |     / ____ \\   / . \\    | |____   / ____ \\  | |____  | |____  | |___| | | |____   / ____ \\    | |    | |__| | | | \\ \\");
-		System.out.println(
-				"     |_|    /_/    \\_\\ /_/ \\_\\    \\_____| /_/    \\_\\ |______|  \\_____|  \\_____/  |______| /_/    \\_\\   |_|     \\____/  |_|  \\_\\ \n\n");
-		System.out.println(
-				"========================================================================================================================================\n\n");
-		System.out.println("\t [1] Withholding Tax \n ");
-		System.out.println("\t [2] Payable Tax \n");
-		System.out.println("\t [3] Income Tax \n");
-		System.out.println("\t [4] Social Security Contribution Levy (SSCL) Tax \n");
-		System.out.println("\t [5] Leasing Payment \n");
-		System.out.println("\t [6] Exit \n\n");
-
 		while (true) {
+			clearConsole();
+
+			System.out.println("\t\t\t\t\t\t  __  _______  ________ ________   ");
+			System.out.println("\t\t\t\t\t\t |  \\/       \\|        |        \\   ");
+			System.out.println("\t\t\t\t\t\t  \\$|   $$$$$$| $$$$$$$$\\$$$$$$$$  ");
+			System.out.println("\t\t\t\t\t\t |  | $$    \\$| $$__      | $$");
+			System.out.println("\t\t\t\t\t\t | $| $$      | $$  \\     | $$");
+			System.out.println("\t\t\t\t\t\t | $| $$    __| $$$$$     | $$");
+			System.out.println("\t\t\t\t\t\t | $| $$___/  | $$_____   | $$");
+			System.out.println("\t\t\t\t\t\t | $$\\$$     $| $$     \\  | $$");
+			System.out.println("\t\t\t\t\t\t  \\$$ \\$$$$$$  \\$$$$$$$$   \\$$ \n\n");
+			System.out.println(
+					"   ________            __    __    _____              _         _____   _     _   _                  _______    ____    ______");
+			System.out.println(
+					"  |__   ___|    /\\     \\ \\  / /   / ____|     /\\     | |       / ____| | |   | | | |          /\\    |__   __|  / __ \\  |  __  \\");
+			System.out.println(
+					"     | |       /  \\     \\ \\/ /   | |         /  \\    | |      | |      | |   | | | |         /  \\      | |    | |  | | | |__) |");
+			System.out.println(
+					"     | |      / /\\ \\     >  <    | |        / /\\ \\   | |      | |      | |   | | | |        / /\\ \\     | |    | |  | | |  _  /");
+			System.out.println(
+					"     | |     / ____ \\   / . \\    | |____   / ____ \\  | |____  | |____  | |___| | | |____   / ____ \\    | |    | |__| | | | \\ \\");
+			System.out.println(
+					"     |_|    /_/    \\_\\ /_/ \\_\\    \\_____| /_/    \\_\\ |______|  \\_____|  \\_____/  |______| /_/    \\_\\   |_|     \\____/  |_|  \\_\\ \n\n");
+			System.out.println(
+					"========================================================================================================================================\n\n");
+			System.out.println("\t [1] Withholding Tax \n ");
+			System.out.println("\t [2] Payable Tax \n");
+			System.out.println("\t [3] Income Tax \n");
+			System.out.println("\t [4] Social Security Contribution Levy (SSCL) Tax \n");
+			System.out.println("\t [5] Leasing Payment \n");
+			System.out.println("\t [6] Exit \n\n");
+
 			System.out.print("Enter an option to continue -> ");
 			int option = input.nextInt();
 			switch (option) {
@@ -59,6 +60,7 @@ class Example {
 					return;
 				default:
 					System.out.print("Invalid option ");
+					continue;
 			}
 		}
 
@@ -75,6 +77,7 @@ class Example {
 		System.out.println("\t [4] Exit \n");
 
 		L1: while (true) {
+			clearConsole();
 			System.out.print("Enter an option to continue -> ");
 			int option1 = input.nextInt();
 			switch (option1) {
@@ -102,6 +105,7 @@ class Example {
 		String again = "Y";
 
 		while (again.equals("Y")) {
+			clearConsole();
 			System.out.println("+-----------------------------------------------------------------+");
 			System.out.println("|\t\t\t PAYABLE TAX \t\t\t  |");
 			System.out.println("+-----------------------------------------------------------------+");
@@ -157,6 +161,7 @@ class Example {
 		String again = "Y";
 
 		while (again.equals("Y")) {
+			clearConsole();
 			System.out.println("+-----------------------------------------------------------------+");
 			System.out.println("|\t\t\t INCOME TAX \t\t\t  |");
 			System.out.println("+-----------------------------------------------------------------+");
@@ -213,6 +218,7 @@ class Example {
 		String again = "Y";
 
 		while (again.equals("Y")) {
+			clearConsole();
 			System.out.println("+-----------------------------------------------------------------+");
 			System.out.println("|\t\t\t SOCIAL SECURITY CONTRIBUTION LEVY (SSCL) TAX \t\t\t  |");
 			System.out.println("+-----------------------------------------------------------------+");
@@ -276,6 +282,7 @@ class Example {
 		String again = "Y";
 
 		while (again.equals("Y")) {
+			clearConsole();
 
 			System.out.println("=================================================");
 			System.out.println("                  RENT TAX                      ");
@@ -308,6 +315,7 @@ class Example {
 		String again = "Y";
 
 		while (again.equals("Y")) {
+			clearConsole();
 
 			System.out.println("+-----------------------------------------------------------------+");
 			System.out.println("|\t\t\t BANK INTEREST TAX \t\t\t  |");
@@ -336,6 +344,7 @@ class Example {
 		String again = "Y";
 
 		while (again.equals("Y")) {
+			clearConsole();
 			System.out.println("+-----------------------------------------------------------------+");
 			System.out.println("|\t\t\t DIVIDEND TAX \t\t\t  |");
 			System.out.println("+-----------------------------------------------------------------+");
@@ -366,6 +375,7 @@ class Example {
 		String again = "Y";
 
 		while (again.equals("Y")) {
+			clearConsole();
 			System.out.println("+-----------------------------------------------------------------+");
 			System.out.println("|\t\t\t CALCULATE MONTHLY INSTALLMENT \t\t\t  |");
 			System.out.println("+-----------------------------------------------------------------+");
@@ -414,6 +424,7 @@ class Example {
 		String again = "Y";
 
 		while (again.equals("Y")) {
+			clearConsole();
 			System.out.println("+-----------------------------------------------------------------+");
 			System.out.println("|\t\t\t SEARCH LEASING CATEGORY \t\t\t  |");
 			System.out.println("+-----------------------------------------------------------------+");
@@ -458,6 +469,7 @@ class Example {
 		String again = "Y";
 
 		while (again.equals("Y")) {
+			clearConsole();
 
 			System.out.println("+-----------------------------------------------------------------+");
 			System.out.println("|\t\t\t FIND LEASING AMOUNT \t\t\t  |");
@@ -499,6 +511,22 @@ class Example {
 
 			System.out.print("Do you want to calculate another monthly instalment (Y/N): ");
 			again = input.next().toUpperCase();
+		}
+	}
+
+	public final static void clearConsole() {
+		try {
+			final String os = System.getProperty("os.name");
+
+			if (os.contains("Windows")) {
+				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+			} else {
+				System.out.print("\033[H\033[2J");
+				System.out.flush();
+			}
+
+		} catch (final Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
