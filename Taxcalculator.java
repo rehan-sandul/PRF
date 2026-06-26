@@ -180,9 +180,31 @@ class Example {
 	}
 
 	public static void bankInterestTax() {
-		System.out.println("+-----------------------------------------------------------------+");
-		System.out.println("|\t\t\t BANK INTEREST TAX \t\t\t  |");
-		System.out.println("+-----------------------------------------------------------------+");
+
+		String again = "Y";
+
+		while (again.equals("Y")) {
+
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.println("|\t\t\t BANK INTEREST TAX \t\t\t  |");
+			System.out.println("+-----------------------------------------------------------------+");
+
+			System.out.print("  Enter your bank interest per year : ");
+			double interest = input.nextDouble();
+
+			if (interest <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			double tax = interest * 0.05;
+			System.out.printf("  You have to pay Bank Interest Tax per year : %.2f%n", tax);
+
+			System.out.print("Do you want to calculate another Bank Interest Tax (Y/N) : ");
+			again = input.next().toUpperCase();
+		}
 	}
 
 	public static void dividendTax() {
