@@ -41,17 +41,22 @@ class Example {
 			switch (option) {
 				case 1:
 					withholdingTaxMenu();
+					break;
 				case 2:
 					PayableTax();
+					break;
 				case 3:
 					IncomeTax();
+					break;
 				case 4:
 					SSCLTax();
+					break;
 				case 5:
 					LeasingPayment();
+					break;
 				case 6:
 					exit();
-					break;
+					return;
 				default:
 					System.out.print("Invalid option ");
 			}
@@ -244,24 +249,21 @@ class Example {
 		System.out.print("Enter an option to continue -> ");
 		int option = input.nextInt();
 
-		while (true) {
-			switch (option) {
-				case 1:
-					calculateMonthlyInstallment();
-					break;
-				case 2:
-					searchLeasingCategory();
-					break;
-				case 3:
-					findLeasingAmount();
-					break;
-				case 4:
-					exit();
-					break;
-				default:
-					System.out.println("Invalid option!");
-					break;
-			}
+		switch (option) {
+			case 1:
+				calculateMonthlyInstallment();
+				break;
+			case 2:
+				searchLeasingCategory();
+				break;
+			case 3:
+				findLeasingAmount();
+				break;
+			case 4:
+				return;
+			default:
+				System.out.println("Invalid option!");
+				break;
 		}
 	}
 
@@ -409,15 +411,94 @@ class Example {
 	}
 
 	public static void searchLeasingCategory() {
-		System.out.println("+-----------------------------------------------------------------+");
-		System.out.println("|\t\t\t SEARCH LEASING CATEGORY \t\t\t  |");
-		System.out.println("+-----------------------------------------------------------------+");
+		String again = "Y";
+
+		while (again.equals("Y")) {
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.println("|\t\t\t SEARCH LEASING CATEGORY \t\t\t  |");
+			System.out.println("+-----------------------------------------------------------------+");
+
+			System.out.print("  Enter lease amount         : ");
+			double leaseAmount = input.nextDouble();
+
+			if (leaseAmount <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			System.out.print("  Enter annual interest rate : ");
+			double annualRate = input.nextDouble();
+
+			if (annualRate <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			double i = (annualRate / 100) / 12;
+
+			double monthly3 = leaseAmount * i / (1 - Math.pow(1 + i, -(3 * 12)));
+			double monthly4 = leaseAmount * i / (1 - Math.pow(1 + i, -(4 * 12)));
+			double monthly5 = leaseAmount * i / (1 - Math.pow(1 + i, -(5 * 12)));
+
+			System.out.printf("  Your monthly instalment for 3 year leasing plan - %.2f%n", monthly3);
+			System.out.printf("  Your monthly instalment for 4 year leasing plan - %.2f%n", monthly4);
+			System.out.printf("  Your monthly instalment for 5 year leasing plan - %.2f%n", monthly5);
+
+			System.out.print("Do you want to Search another Leasing Category (Y/N): ");
+			again = input.next().toUpperCase();
+		}
 	}
 
 	public static void findLeasingAmount() {
-		System.out.println("+-----------------------------------------------------------------+");
-		System.out.println("|\t\t\t FIND LEASING AMOUNT \t\t\t  |");
-		System.out.println("+-----------------------------------------------------------------+");
-	}
 
+		String again = "Y";
+
+		while (again.equals("Y")) {
+
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.println("|\t\t\t FIND LEASING AMOUNT \t\t\t  |");
+			System.out.println("+-----------------------------------------------------------------+");
+			System.out.print("  Enter the monthly lease payment amount you can afford : ");
+			double monthly = input.nextDouble();
+
+			if (monthly <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			System.out.print("  Enter number of year                                  : ");
+			int years = input.nextInt();
+
+			if (years <= 0 || years > 5) {
+				System.out.println("  Invalid number of year... Enter the correct value again...");
+				System.out.print("  Enter number of year                                  : ");
+				years = input.nextInt();
+			}
+
+			System.out.print("  Enter annual interest rate                            : ");
+			double annualRate = input.nextDouble();
+
+			if (annualRate <= 0) {
+				System.out.println("  Invalid input...");
+				System.out.print("Do you want to enter the correct value again (Y/N): ");
+				again = input.next().toUpperCase();
+				continue;
+			}
+
+			double i = (annualRate / 100) / 12;
+			int n = years * 12;
+			double leaseAmount = monthly * (1 - Math.pow(1 + i, -n)) / i;
+
+			System.out.printf("  You can get Lease Amount : %.2f%n", leaseAmount);
+
+			System.out.print("Do you want to calculate another monthly instalment (Y/N): ");
+			again = input.next().toUpperCase();
+		}
+	}
 }
