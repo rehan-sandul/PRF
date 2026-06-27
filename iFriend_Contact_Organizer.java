@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class iFriend_Contact_Organizer {
+class iFriend_Contact_Organizer {
     static Scanner sc = new Scanner(System.in);
 
     
